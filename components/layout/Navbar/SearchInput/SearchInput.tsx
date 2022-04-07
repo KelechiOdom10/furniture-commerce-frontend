@@ -11,6 +11,7 @@ const SearchInput: React.FC = () => {
         input: classes.input,
         icon: classes.icon,
       }}
+      aria-label="Search Products Input"
       icon={<Search color="black" />}
       iconWidth={40}
       placeholder="Search products"

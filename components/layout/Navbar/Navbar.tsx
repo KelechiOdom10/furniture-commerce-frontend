@@ -23,6 +23,7 @@ function Navbar() {
       <Group position="apart" className={classes.nav}>
         <Icon
           icon={<Menu2 />}
+          title="Hamburger Menu"
           variant="transparent"
           onClick={handlers.open}
           className={classes.burgerIcon}

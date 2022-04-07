@@ -8,6 +8,9 @@ export const useNavBarStyles = createStyles(theme => ({
     [theme.fn.smallerThan("xs")]: {
       display: "none",
     },
+    [theme.fn.smallerThan("md")]: {
+      gap: 8,
+    },
     [theme.fn.largerThan("md")]: {
       paddingInline: 60,
     },

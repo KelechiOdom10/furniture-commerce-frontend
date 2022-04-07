@@ -7,7 +7,7 @@ export const Logo = () => {
       component="span"
       role="img"
       aria-label="MADE Logo"
-      sx={t => ({
+      sx={{
         transitionDuration: "400ms",
         transitionTimingFunction: "cubic-bezier(0.25, 0.1, 0.25, 1)",
         transitionProperty: "transform",
@@ -15,7 +15,7 @@ export const Logo = () => {
         backgroundImage: `url(${"/images/logo.svg"})`,
         width: "96px",
         height: "25px",
-      })}
+      }}
     />
   );
 };
