@@ -2,6 +2,7 @@ import type { AppProps } from "next/app";
 import Head from "next/head";
 import { MantineProvider } from "@mantine/core";
 import { NotificationsProvider } from "@mantine/notifications";
+import Navbar from "@components/layout/Navbar/Navbar";
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
@@ -27,6 +28,7 @@ function MyApp({ Component, pageProps }: AppProps) {
         }}
       >
         <NotificationsProvider>
+          <Navbar />
           <Component {...pageProps} />
         </NotificationsProvider>
       </MantineProvider>
