@@ -2,7 +2,7 @@ import type { AppProps } from "next/app";
 import Head from "next/head";
 import { MantineProvider } from "@mantine/core";
 import { NotificationsProvider } from "@mantine/notifications";
-import Navbar from "@components/layout/Navbar/Navbar";
+import Navbar from "@components/Navbar";
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
