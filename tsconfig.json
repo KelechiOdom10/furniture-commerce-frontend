@@ -5,7 +5,9 @@
     "baseUrl": ".",
     "paths": {
       "@components/*": ["components/*"],
-      "@data/*": ["data/*"]
+      "@data/*": ["data/*"],
+      "@utils/*": ["utils/*"],
+      "@hooks/*": ["hooks/*"]
     },
     "allowJs": true,
     "skipLibCheck": true,

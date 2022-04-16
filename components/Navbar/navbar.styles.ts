@@ -7,6 +7,7 @@ export const useNavBarStyles = createStyles(theme => ({
     backgroundColor: "white",
     zIndex: 10,
     transition: `top .45s ease-in-out`,
+    borderBottom: `1px solid ${theme.colors.gray[1]}`,
   },
   navHidden: {
     top: "-60px",
@@ -18,27 +19,31 @@ export const useNavBarStyles = createStyles(theme => ({
     color: theme.colors.gray[9],
     padding: theme.spacing.xl,
     paddingBottom: 0,
-    [theme.fn.smallerThan("xs")]: {
-      display: "none",
-    },
-    [theme.fn.smallerThan("md")]: {
-      gap: 8,
-    },
+    gap: 8,
     [theme.fn.largerThan("md")]: {
-      paddingInline: 60,
-      paddingBottom: 8,
+      padding: `${16}px ${60}px`,
+      gap: 0,
+    },
+    [theme.fn.smallerThan("xs")]: {
+      justifyContent: "center",
+      padding: theme.spacing.sm,
+      paddingBottom: 0,
     },
   },
   burgerIcon: {
     [theme.fn.largerThan("md")]: {
       display: "none",
     },
+    [theme.fn.smallerThan("xs")]: {
+      display: "none",
+    },
   },
   logo: {
-    paddingLeft: 60,
-    [theme.fn.largerThan("md")]: {
-      paddingLeft: 0,
-    },
+    paddingLeft: 0,
+    [`@media (min-width: ${theme.breakpoints.xs}) and (max-width: ${theme.breakpoints.md}px)`]:
+      {
+        paddingLeft: 60,
+      },
   },
   profileIcon: {
     [theme.fn.smallerThan("md")]: {
@@ -48,6 +53,9 @@ export const useNavBarStyles = createStyles(theme => ({
   iconGroup: {
     [theme.fn.largerThan("md")]: {
       order: 1,
+    },
+    [theme.fn.smallerThan("xs")]: {
+      display: "none",
     },
   },
   mainMenu: {
@@ -69,6 +77,9 @@ export const useNavBarStyles = createStyles(theme => ({
       width: "100%",
       maxWidth: 400,
       flex: 1,
+    },
+    [theme.fn.smallerThan("xs")]: {
+      display: "none",
     },
   },
   subMenu: {

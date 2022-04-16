@@ -8,7 +8,7 @@ export const useMobileNavStyles = createStyles(theme => ({
     },
   },
   activeLink: {
-    color: theme.colors.gray[9],
+    color: "black",
     "&:hover": {
       color: theme.colors.gray[9],
     },

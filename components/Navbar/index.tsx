@@ -1,4 +1,4 @@
-import { Box, Group, Menu } from "@mantine/core";
+import { Box, Container, Group, Menu } from "@mantine/core";
 import { useDisclosure } from "@mantine/hooks";
 import { NextLink } from "@mantine/next";
 import { useRouter } from "next/router";
@@ -25,103 +25,105 @@ function Navbar() {
         component="nav"
         className={cx(classes.nav, { [classes.navHidden]: !show })}
       >
-        <Group position="apart" className={classes.menu}>
-          <Icon
-            icon={<Menu2 />}
-            title="Hamburger Menu"
-            variant="transparent"
-            onClick={handlers.open}
-            className={classes.burgerIcon}
-          />
-          <Box className={classes.logo}>
-            <LinkLogo />
-          </Box>
-          <Group className={classes.iconGroup}>
+        <Container size={1920} px={0}>
+          <Group position="apart" className={classes.menu}>
             <Icon
+              icon={<Menu2 />}
+              title="Hamburger Menu"
               variant="transparent"
-              title="User"
-              icon={<User />}
-              className={classes.profileIcon}
+              onClick={handlers.open}
+              className={classes.burgerIcon}
             />
-            <IconLink
-              title="Wishlist"
-              variant="transparent"
-              icon={<Heart />}
-              href="/wishlist"
-            />
-            <IconLink
-              title="Cart"
-              variant="transparent"
-              icon={<Basket />}
-              href="/cart"
-            />
-          </Group>
-          <Group className={classes.mainMenu}>
-            <Group className={classes.mainMenuGroup}>
-              {main_links.map(({ href, title }) => {
-                const isActive = router.pathname === href;
+            <Box className={classes.logo}>
+              <LinkLogo />
+            </Box>
+            <Group className={classes.iconGroup}>
+              <Icon
+                variant="transparent"
+                title="User"
+                icon={<User />}
+                className={classes.profileIcon}
+              />
+              <IconLink
+                title="Wishlist"
+                variant="transparent"
+                icon={<Heart />}
+                href="/wishlist"
+              />
+              <IconLink
+                title="Cart"
+                variant="transparent"
+                icon={<Basket />}
+                href="/cart"
+              />
+            </Group>
+            <Group className={classes.mainMenu}>
+              <Group className={classes.mainMenuGroup}>
+                {main_links.map(({ href, title }) => {
+                  const isActive = router.pathname === href;
+                  return (
+                    <Link
+                      key={title}
+                      href={href}
+                      className={cx(classes.mainLink, {
+                        [classes.activeLink]: isActive,
+                      })}
+                      style={{ textTransform: "uppercase" }}
+                    >
+                      {title}
+                    </Link>
+                  );
+                })}
+              </Group>
+              <Box className={classes.input}>
+                <SearchInput />
+              </Box>
+            </Group>
+            <Group align="flex-start" className={classes.subMenu} spacing="xl">
+              {sub_links.map(({ name, slug, productTypes }) => {
+                const menuItems = productTypes?.map(({ name, slug }) => (
+                  <Menu.Item component={NextLink} key={name} href={slug}>
+                    {name}
+                  </Menu.Item>
+                ));
+
+                if (menuItems) {
+                  return (
+                    <Menu
+                      key={name}
+                      trigger="hover"
+                      delay={100}
+                      position="bottom"
+                      transitionDuration={0}
+                      placement="start"
+                      gutter={5}
+                      control={
+                        <NextLink
+                          href={`categories/${slug}`}
+                          className={classes.mainLink}
+                        >
+                          {name}
+                        </NextLink>
+                      }
+                    >
+                      {menuItems}
+                    </Menu>
+                  );
+                }
+
                 return (
                   <Link
-                    key={title}
-                    href={href}
-                    className={cx(classes.mainLink, {
-                      [classes.activeLink]: isActive,
-                    })}
-                    style={{ textTransform: "uppercase" }}
+                    key={name}
+                    href={`categories/${slug}`}
+                    className={classes.mainLink}
                   >
-                    {title}
+                    {name}
                   </Link>
                 );
               })}
             </Group>
-            <Box className={classes.input}>
-              <SearchInput />
-            </Box>
           </Group>
-          <Group align="flex-start" className={classes.subMenu} spacing="xl">
-            {sub_links.map(({ name, slug, productTypes }) => {
-              const menuItems = productTypes?.map(({ name, slug }) => (
-                <Menu.Item component={NextLink} key={name} href={slug}>
-                  {name}
-                </Menu.Item>
-              ));
-
-              if (menuItems) {
-                return (
-                  <Menu
-                    key={name}
-                    trigger="hover"
-                    delay={100}
-                    position="bottom"
-                    transitionDuration={0}
-                    placement="start"
-                    gutter={5}
-                    control={
-                      <NextLink
-                        href={`categories/${slug}`}
-                        className={classes.mainLink}
-                      >
-                        {name}
-                      </NextLink>
-                    }
-                  >
-                    {menuItems}
-                  </Menu>
-                );
-              }
-
-              return (
-                <Link
-                  key={name}
-                  href={`categories/${slug}`}
-                  className={classes.mainLink}
-                >
-                  {name}
-                </Link>
-              );
-            })}
-          </Group>
-        </Group>
+        </Container>
       </Box>
       <MobileNav />
       <NavDrawer isOpen={opened} onClose={handlers.close} />

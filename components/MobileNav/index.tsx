@@ -64,19 +64,21 @@ const MobileNav: React.FC = () => {
   };
 
   return (
-    <Group align="center" className={classes.mobileNav}>
-      {mobileNavLinks.map(({ title, href, icon }) => (
-        <MobileNavItem
-          key={title}
-          href={href}
-          icon={icon}
-          title={title}
-          onHandleOpen={handleDrawerOpen}
-          onHandleClose={handleDrawerClose}
-        />
-      ))}
-      <NavDrawer isOpen={opened} onClose={handleDrawerClose} />
-    </Group>
+    <nav>
+      <Group align="center" className={classes.mobileNav}>
+        {mobileNavLinks.map(({ title, href, icon }) => (
+          <MobileNavItem
+            key={title}
+            href={href}
+            icon={icon}
+            title={title}
+            onHandleOpen={handleDrawerOpen}
+            onHandleClose={handleDrawerClose}
+          />
+        ))}
+        <NavDrawer isOpen={opened} onClose={handleDrawerClose} />
+      </Group>
+    </nav>
   );
 };
 
