@@ -1,4 +1,4 @@
-import { Category, IDesktopNavItem } from "types";
+import { CategoryDetailType, IDesktopNavItem } from "types";
 
 export const main_links: IDesktopNavItem[] = [
   { title: "Shop", href: "/products" },
@@ -6,7 +6,7 @@ export const main_links: IDesktopNavItem[] = [
   { title: "Contact", href: "/contact" },
 ];
 
-export const sub_links: Category[] = [
+export const sub_links: CategoryDetailType[] = [
   {
     name: "Sofas",
     slug: "sofas",
