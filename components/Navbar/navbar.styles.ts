@@ -21,7 +21,7 @@ export const useNavBarStyles = createStyles(theme => ({
     paddingBottom: 0,
     gap: 8,
     [theme.fn.largerThan("md")]: {
-      padding: `${16}px ${60}px`,
+      padding: `${16}px ${48}px`,
       gap: 0,
     },
     [theme.fn.smallerThan("xs")]: {
@@ -92,7 +92,7 @@ export const useNavBarStyles = createStyles(theme => ({
   },
   mainLink: {
     fontSize: theme.fontSizes.md,
-    fontWeight: 200,
+    fontWeight: 400,
     color: theme.colors.gray[8],
     textDecoration: "none",
     "&:hover": {
