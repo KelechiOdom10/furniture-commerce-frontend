@@ -1,4 +1,5 @@
 import { ReactNode } from "react";
+import { components } from "./api";
 
 export interface IMobileNavItem {
   title: string;
@@ -12,21 +13,11 @@ export interface IDesktopNavItem {
   children?: IDesktopNavItem[];
 }
 
-export interface Category {
-  name: string;
-  slug: string;
-  description: string;
-  imageUrl: string;
-  id: number;
-  createdAt: string;
-  productTypes?: ProductType[];
-}
+export type CategoryReadType = components["schemas"]["CategoryReadDto"];
+export type ProductTypeReadType = components["schemas"]["ProductTypeReadDto"];
+export type ProductReadType = components["schemas"]["ProductReadDto"];
 
-export interface ProductType {
-  name: string;
-  categoryName: string;
-  slug: string;
-  imageUrl: string;
-  id: number;
-  createdAt: string;
-}
+export type CategoryDetailType = components["schemas"]["CategoryDetailDto"];
+export type ProductTypeDetailType =
+  components["schemas"]["ProductTypeDetailDto"];
+export type ProductDetailType = components["schemas"]["ProductDetailDto"];

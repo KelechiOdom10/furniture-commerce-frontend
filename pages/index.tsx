@@ -1,7 +1,5 @@
 import type { NextPage } from "next";
-import Link from "next/link";
 import {
-  Button,
   Group,
   Container,
   Title,
@@ -12,11 +10,16 @@ import {
   SegmentedControl,
 } from "@mantine/core";
 import { useNotifications } from "@mantine/notifications";
+import Button from "@components/shared/Button";
+import ButtonLink from "@components/shared/ButtonLink";
+import { BrandApple } from "tabler-icons-react";
+import { products } from "@data/products";
+import ProductList from "@components/ProductList";
 
 const Home: NextPage = () => {
   const notifications = useNotifications();
   return (
-    <Container size={400} style={{ paddingTop: 80, paddingBottom: 120 }}>
+    <Container size={1400} style={{ paddingTop: 80, paddingBottom: 120 }}>
       <Title style={{ textAlign: "center", marginBottom: 20 }}>
         Mantine Next starter
       </Title>
@@ -24,18 +27,17 @@ const Home: NextPage = () => {
         This starter includes a couple of @mantine packages, feel free to remove
         everything that is not required for your application
       </Text>
-      <Group position="center">
-        <Button component="a" href="https://mantine.dev" size="md">
-          Mantine docs
-        </Button>
-        <Button
-          component="a"
+      <Group position="apart">
+        <ButtonLink href="https://mantine.dev" size="md">
+          Mantine docs{" "}
+        </ButtonLink>
+        <ButtonLink
           href="https://mantine.dev/theming/theming-context/"
           variant="light"
           size="md"
         >
           Change theme
-        </Button>
+        </ButtonLink>
       </Group>
 
       <Title
@@ -87,31 +89,33 @@ const Home: NextPage = () => {
       <Text weight={700} style={{ marginTop: 30, marginBottom: 15 }}>
         Add your styles to any part of component
       </Text>
-      <Link href="https://twitter.com/mantinedev" passHref>
-        <Button
-          component="a"
-          target="_blank"
-          rel="noopener noreferrer"
-          size="lg"
-          fullWidth
-          styles={{
-            filled: {
-              backgroundColor: "#00acee",
-              textShadow: "unset",
-              border: 0,
-              height: 48,
-              paddingLeft: 20,
-              paddingRight: 20,
-            },
+      <ButtonLink
+        href="https://twitter.com/mantinedev"
+        target="_blank"
+        rel="noopener noreferrer"
+        size="lg"
+      >
+        {" "}
+        Follow Mantine on Twitter
+      </ButtonLink>
 
-            label: {
-              textShadow: "1px 1px 0 #0490c7",
-            },
-          }}
-        >
-          Follow Mantine on Twitter
+      <Button
+        variant="default"
+        mt={6}
+        leftIcon={<BrandApple size={20} fill="white" />}
+      >
+        Hello
+      </Button>
+      <Group position="apart">
+        <Button variant="light" mt={6}>
+          Hello Kelechi
         </Button>
-      </Link>
+        <Button variant="subtle" mt={6} size="md">
+          Hello
+        </Button>
+      </Group>
+
+      <ProductList products={products} />
     </Container>
   );
 };

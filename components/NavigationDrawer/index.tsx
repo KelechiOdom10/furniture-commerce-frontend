@@ -1,5 +1,5 @@
 import { forwardRef, useState } from "react";
-import { Category, IMobileNavItem } from "types";
+import { CategoryDetailType, IMobileNavItem } from "types";
 import {
   Box,
   Drawer,
@@ -108,9 +108,9 @@ const NavDrawer: React.FC<DrawerProps> = ({ isOpen, onClose }) => {
   const { classes, cx } = useNavDrawerStyles();
   const [opened, handlers] = useDisclosure(false);
   const [selectedCategoryDetail, setSelectedCategoryDetail] =
-    useState<Category | null>(null);
+    useState<CategoryDetailType | null>(null);
 
-  const handleCategoryClick = (category: Category) => {
+  const handleCategoryClick = (category: CategoryDetailType) => {
     setSelectedCategoryDetail(category);
     handlers.open();
   };
