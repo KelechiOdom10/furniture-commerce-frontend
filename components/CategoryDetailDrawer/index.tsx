@@ -10,13 +10,13 @@ import {
 } from "@mantine/core";
 import React from "react";
 import { ChevronLeft } from "tabler-icons-react";
-import { Category } from "types";
+import { CategoryDetailType } from "types";
 import { useNavDrawerStyles } from "../NavigationDrawer/navigation-drawer.styles";
 import { useCategoryDetailDrawerStyles } from "./category-detail-drawer.styles";
 
 type Props = {
   opened: boolean;
-  category: Category | null;
+  category: CategoryDetailType | null;
   onBack: () => void;
   onClose: () => void;
 };
