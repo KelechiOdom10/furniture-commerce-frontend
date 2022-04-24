@@ -81,11 +81,17 @@ function Navbar() {
             </Group>
             <Group align="flex-start" className={classes.subMenu} spacing="xl">
               {sub_links.map(({ name, slug, productTypes }) => {
-                const menuItems = productTypes?.map(({ name, slug }) => (
-                  <Menu.Item component={NextLink} key={name} href={slug}>
-                    {name}
-                  </Menu.Item>
-                ));
+                const menuItems = productTypes?.map(
+                  ({ name, slug: productTypeSlug }) => (
+                    <Menu.Item
+                      component={NextLink}
+                      key={name}
+                      href={`/categories/${slug}/${productTypeSlug}`}
+                    >
+                      {name}
+                    </Menu.Item>
+                  )
+                );
 
                 if (menuItems) {
                   return (
@@ -99,7 +105,7 @@ function Navbar() {
                       gutter={5}
                       control={
                         <NextLink
-                          href={`categories/${slug}`}
+                          href={`/categories/${slug}`}
                           className={classes.mainLink}
                         >
                           {name}
@@ -114,7 +120,7 @@ function Navbar() {
                 return (
                   <Link
                     key={name}
-                    href={`categories/${slug}`}
+                    href={`/categories/${slug}`}
                     className={classes.mainLink}
                   >
                     {name}

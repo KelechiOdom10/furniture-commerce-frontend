@@ -129,7 +129,11 @@ const NavDrawer: React.FC<DrawerProps> = ({ isOpen, onClose }) => {
       <SearchInput />
       <Group direction="column" className={classes.mainContent}>
         <Box>
-          <Link href="/about" className={classes.productLink} onClick={onClose}>
+          <Link
+            href="/products"
+            className={classes.productLink}
+            onClick={onClose}
+          >
             <CategoryDrawerButton
               name="All Products"
               description="View All products"
