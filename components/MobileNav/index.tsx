@@ -30,7 +30,14 @@ const MobileNavItem: React.FC<IMobileNavItem & MobileNavItemProps> = ({
 }) => {
   const router = useRouter();
   const { cx, classes } = useMobileNavStyles();
-  const isActive = router.pathname === href;
+  let isActive = router.pathname === href;
+
+  if (
+    !mobileNavLinks.some(link => link.href === router.pathname) &&
+    title === "Home"
+  ) {
+    isActive = true;
+  }
 
   const handleDrawerToggle: MouseEventHandler<HTMLAnchorElement> = event => {
     if (title === "Search") {
