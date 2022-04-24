@@ -1,4 +1,4 @@
-import type { NextPage } from "next";
+import type { GetStaticProps, NextPage } from "next";
 import {
   Group,
   Container,
@@ -13,10 +13,32 @@ import { useNotifications } from "@mantine/notifications";
 import Button from "@components/shared/Button";
 import ButtonLink from "@components/shared/ButtonLink";
 import { BrandApple } from "tabler-icons-react";
-import { products } from "@data/products";
 import ProductList from "@components/ProductList";
+import productService from "services/productService";
+import { dehydrate, QueryClient } from "react-query";
+import { useFeaturedProducts } from "@hooks/useFeaturedProducts";
+
+export const getStaticProps: GetStaticProps = async () => {
+  const queryClient = new QueryClient();
+
+  await queryClient.prefetchQuery(
+    "featuredProducts",
+    productService.getProducts,
+    {
+      staleTime: Infinity,
+    }
+  );
+
+  return {
+    props: {
+      dehydratedState: dehydrate(queryClient),
+    },
+  };
+};
 
 const Home: NextPage = () => {
+  const { data: featuredProducts } = useFeaturedProducts();
+
   const notifications = useNotifications();
   return (
     <Container size={1400} style={{ paddingTop: 80, paddingBottom: 120 }}>
@@ -115,7 +137,7 @@ const Home: NextPage = () => {
         </Button>
       </Group>
 
-      <ProductList products={products} />
+      <ProductList products={featuredProducts!} />
     </Container>
   );
 };
