@@ -1,6 +1,5 @@
 import Link from "@components/shared/Link";
 import { Box, Group, Image, Stack, Text, Title } from "@mantine/core";
-import React from "react";
 import { ProductReadType } from "types";
 import { useProductCardStyles } from "./product-card.styles";
 

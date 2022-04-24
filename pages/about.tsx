@@ -1,7 +1,7 @@
-import React from "react";
+import { NextPage } from "next";
 
-function about() {
-  return <div>about</div>;
-}
+const About: NextPage = () => {
+  return <div>About</div>;
+};
 
-export default about;
+export default About;

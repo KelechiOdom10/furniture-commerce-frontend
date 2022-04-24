@@ -3,8 +3,6 @@ import {
   ButtonProps,
   createStyles,
 } from "@mantine/core";
-import React from "react";
-
 interface IButtonProps extends ButtonProps<"button"> {
   radius?: number;
 }

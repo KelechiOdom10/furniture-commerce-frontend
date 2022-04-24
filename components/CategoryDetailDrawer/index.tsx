@@ -8,7 +8,6 @@ import {
   UnstyledButton,
   Divider,
 } from "@mantine/core";
-import React from "react";
 import { ChevronLeft } from "tabler-icons-react";
 import { CategoryDetailType } from "types";
 import { useNavDrawerStyles } from "../NavigationDrawer/navigation-drawer.styles";
@@ -74,9 +73,10 @@ const CategoryDetailDrawer = ({ opened, category, onBack, onClose }: Props) => {
             category?.productTypes.map(({ id, slug, name }) => (
               <Link
                 key={id}
-                href={slug}
+                href={`/categories/${category.slug}/${slug}`}
                 size="sm"
                 className={detailClasses.productTypeLink}
+                onClick={onClose}
               >
                 {name}
               </Link>
@@ -84,10 +84,11 @@ const CategoryDetailDrawer = ({ opened, category, onBack, onClose }: Props) => {
         </Group>
         <Divider my={16} />
         <Link
-          href={category?.slug!}
+          href={`/categories/${category?.slug}`}
           pl={8}
           size="sm"
           className={detailClasses.productTypeLink}
+          onClick={onClose}
         >
           All {category?.name}
         </Link>
