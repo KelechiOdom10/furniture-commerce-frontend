@@ -5,7 +5,7 @@
     "version": "1.0"
   },
   "paths": {
-    "/api/category": {
+    "/api/categories": {
       "get": {
         "tags": ["Category"],
         "responses": {
@@ -85,7 +85,7 @@
         }
       }
     },
-    "/api/category/{slug}": {
+    "/api/categories/{slug}": {
       "get": {
         "tags": ["Category"],
         "parameters": [
@@ -122,7 +122,7 @@
         }
       }
     },
-    "/api/category/{id}": {
+    "/api/categories/{id}": {
       "put": {
         "tags": ["Category"],
         "parameters": [
@@ -181,7 +181,7 @@
         }
       }
     },
-    "/api/product": {
+    "/api/products": {
       "get": {
         "tags": ["Product"],
         "responses": {
@@ -261,7 +261,7 @@
         }
       }
     },
-    "/api/product/{slug}": {
+    "/api/products/{slug}": {
       "get": {
         "tags": ["Product"],
         "parameters": [
@@ -298,7 +298,7 @@
         }
       }
     },
-    "/api/product/{id}": {
+    "/api/products/{id}": {
       "put": {
         "tags": ["Product"],
         "parameters": [
@@ -357,7 +357,7 @@
         }
       }
     },
-    "/api/productType": {
+    "/api/productTypes": {
       "get": {
         "tags": ["ProductType"],
         "responses": {
@@ -437,7 +437,7 @@
         }
       }
     },
-    "/api/productType/{slug}": {
+    "/api/productTypes/{slug}": {
       "get": {
         "tags": ["ProductType"],
         "parameters": [
@@ -474,7 +474,7 @@
         }
       }
     },
-    "/api/productType/{id}": {
+    "/api/productTypes/{id}": {
       "put": {
         "tags": ["ProductType"],
         "parameters": [
@@ -782,7 +782,7 @@
           "isAvailable": {
             "type": "boolean"
           },
-          "productType": {
+          "productTypeName": {
             "type": "string",
             "nullable": true
           },
@@ -844,7 +844,7 @@
           "isAvailable": {
             "type": "boolean"
           },
-          "productType": {
+          "productTypeName": {
             "type": "string",
             "nullable": true
           },
@@ -884,6 +884,7 @@
           "id",
           "imageUrl",
           "name",
+          "products",
           "slug"
         ],
         "type": "object",
@@ -915,8 +916,7 @@
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/ProductReadDto"
-            },
-            "nullable": true
+            }
           }
         },
         "additionalProperties": false
@@ -924,6 +924,7 @@
       "ProductTypeReadDto": {
         "required": [
           "categoryName",
+          "categorySlug",
           "createdAt",
           "id",
           "imageUrl",
@@ -950,6 +951,9 @@
             "type": "string"
           },
           "imageUrl": {
+            "type": "string"
+          },
+          "categorySlug": {
             "type": "string"
           }
         },

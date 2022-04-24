@@ -4,7 +4,7 @@
  */
 
 export interface paths {
-  "/api/category": {
+  "/api/categories": {
     get: {
       responses: {
         /** Success */
@@ -37,7 +37,7 @@ export interface paths {
       };
     };
   };
-  "/api/category/{slug}": {
+  "/api/categories/{slug}": {
     get: {
       parameters: {
         path: {
@@ -56,7 +56,7 @@ export interface paths {
       };
     };
   };
-  "/api/category/{id}": {
+  "/api/categories/{id}": {
     put: {
       parameters: {
         path: {
@@ -87,7 +87,7 @@ export interface paths {
       };
     };
   };
-  "/api/product": {
+  "/api/products": {
     get: {
       responses: {
         /** Success */
@@ -120,7 +120,7 @@ export interface paths {
       };
     };
   };
-  "/api/product/{slug}": {
+  "/api/products/{slug}": {
     get: {
       parameters: {
         path: {
@@ -139,7 +139,7 @@ export interface paths {
       };
     };
   };
-  "/api/product/{id}": {
+  "/api/products/{id}": {
     put: {
       parameters: {
         path: {
@@ -170,7 +170,7 @@ export interface paths {
       };
     };
   };
-  "/api/productType": {
+  "/api/productTypes": {
     get: {
       responses: {
         /** Success */
@@ -203,7 +203,7 @@ export interface paths {
       };
     };
   };
-  "/api/productType/{slug}": {
+  "/api/productTypes/{slug}": {
     get: {
       parameters: {
         path: {
@@ -222,7 +222,7 @@ export interface paths {
       };
     };
   };
-  "/api/productType/{id}": {
+  "/api/productTypes/{id}": {
     put: {
       parameters: {
         path: {
@@ -327,7 +327,7 @@ export interface components {
       /** Format: int32 */
       quantity: number;
       isAvailable: boolean;
-      productType?: string | null;
+      productTypeName?: string | null;
       categoryName?: string | null;
       images: string[];
     };
@@ -345,7 +345,7 @@ export interface components {
       /** Format: int32 */
       quantity: number;
       isAvailable: boolean;
-      productType?: string | null;
+      productTypeName?: string | null;
       categoryName?: string | null;
     };
     ProductTypeCreateDto: {
@@ -365,7 +365,7 @@ export interface components {
       slug: string;
       imageUrl: string;
       categorySlug: string;
-      products?: components["schemas"]["ProductReadDto"][] | null;
+      products: components["schemas"]["ProductReadDto"][];
     };
     ProductTypeReadDto: {
       /** Format: int32 */
@@ -376,6 +376,7 @@ export interface components {
       categoryName: string;
       slug: string;
       imageUrl: string;
+      categorySlug: string;
     };
     ProductTypeUpdateDto: {
       /** Format: int32 */
