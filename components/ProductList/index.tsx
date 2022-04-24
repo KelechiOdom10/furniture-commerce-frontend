@@ -1,6 +1,5 @@
 import ProductCard from "@components/ProductCard";
 import { Container, Grid } from "@mantine/core";
-import React from "react";
 import { ProductReadType } from "types";
 
 const ProductList: React.FC<{ products: ProductReadType[] }> = ({
