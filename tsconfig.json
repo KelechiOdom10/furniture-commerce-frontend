@@ -8,7 +8,9 @@
       "@data/*": ["data/*"],
       "@utils/*": ["utils/*"],
       "@hooks/*": ["hooks/*"],
-      "@constants/*": ["constants/*"]
+      "@constants/*": ["constants/*"],
+      "@services/*": ["services/*"],
+      "@store/*": ["store/*"]
     },
     "allowJs": true,
     "skipLibCheck": true,

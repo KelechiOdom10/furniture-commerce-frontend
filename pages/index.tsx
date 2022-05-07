@@ -16,7 +16,9 @@ import { BrandApple } from "tabler-icons-react";
 import ProductList from "@components/ProductList";
 import productService from "services/productService";
 import { dehydrate, QueryClient } from "react-query";
-import { useFeaturedProducts } from "@hooks/useFeaturedProducts";
+import { useFeaturedProducts } from "@hooks/api/useFeaturedProducts";
+import QuantityInput from "@components/QuantityInput";
+import { useCart } from "@hooks/useCart";
 
 export const getStaticProps: GetStaticProps = async () => {
   const queryClient = new QueryClient();
@@ -38,6 +40,7 @@ export const getStaticProps: GetStaticProps = async () => {
 
 const Home: NextPage = () => {
   const { data: featuredProducts } = useFeaturedProducts();
+  const { addItem, removeItem, clearCart, decreaseQuantity, cart } = useCart();
 
   const notifications = useNotifications();
   return (
@@ -125,9 +128,24 @@ const Home: NextPage = () => {
         variant="default"
         mt={6}
         leftIcon={<BrandApple size={20} fill="white" />}
+        onClick={() =>
+          addItem(
+            { id: "brr", name: "Apple", price: 4, quantity: 1, imageUrl: "" },
+            1
+          )
+        }
       >
-        Hello
+        Add to Cart
       </Button>
+      <Button
+        variant="default"
+        mt={6}
+        leftIcon={<BrandApple size={20} fill="white" />}
+        onClick={() => removeItem("brr")}
+      >
+        Remove from Cart
+      </Button>
+
       <Group position="apart">
         <Button variant="light" mt={6}>
           Hello Kelechi
@@ -136,6 +154,10 @@ const Home: NextPage = () => {
           Hello
         </Button>
       </Group>
+
+      <>
+        <QuantityInput productId="brr" />
+      </>
 
       <ProductList products={featuredProducts!} />
     </Container>

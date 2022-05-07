@@ -1,4 +1,4 @@
-import { useProduct } from "@hooks/useProduct";
+import { useProduct } from "@hooks/api/useProduct";
 import { GetStaticPaths, GetStaticProps, NextPage } from "next";
 import { dehydrate, QueryClient } from "react-query";
 import productService from "services/productService";
@@ -14,7 +14,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
 };
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
-  const { slug } = params! as { slug: string };
+  const { slug } = params as { slug: string };
   const queryClient = new QueryClient();
 
   await queryClient.prefetchQuery(["product", slug], () =>

@@ -1,7 +1,7 @@
 import { GetStaticProps, NextPage } from "next";
 import { dehydrate, QueryClient } from "react-query";
 import productService from "services/productService";
-import { useProducts } from "@hooks/useProducts";
+import { useProducts } from "@hooks/api/useProducts";
 import ProductList from "@components/ProductList";
 import ErrorScreen from "@components/ErrorScreen";
 import LoadingScreen from "@components/LoadingScreen";
@@ -35,7 +35,7 @@ const Products: NextPage = () => {
     return <LoadingScreen />;
   }
 
-  return <ProductList products={products!} />;
+  return <ProductList products={products ?? []} />;
 };
 
 export default Products;
