@@ -1,6 +1,6 @@
-import { useProductType } from "@hooks/useProductType";
 import { GetStaticPaths, GetStaticProps, NextPage } from "next";
 import { dehydrate, QueryClient } from "react-query";
+import { useProductType } from "@hooks/api/useProductType";
 import productTypeService from "services/productTypeService";
 
 type Props = {

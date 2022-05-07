@@ -1,7 +1,7 @@
-import { useCategories } from "@hooks/useCategories";
 import { GetStaticProps, NextPage } from "next";
 import { dehydrate, QueryClient } from "react-query";
-import categoryService from "services/categoryService";
+import { useCategories } from "@hooks/api/useCategories";
+import categoryService from "@services/categoryService";
 
 export const getStaticProps: GetStaticProps = async () => {
   const queryClient = new QueryClient();

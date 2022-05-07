@@ -1,6 +1,6 @@
-import { useCategory } from "@hooks/useCategory";
 import { GetStaticPaths, GetStaticProps, NextPage } from "next";
 import { dehydrate, QueryClient } from "react-query";
+import { useCategory } from "@hooks/api/useCategory";
 import categoryService from "services/categoryService";
 
 export const getStaticPaths: GetStaticPaths = async () => {
