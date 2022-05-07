@@ -1,4 +1,4 @@
-import { Box, Container, Group, Menu } from "@mantine/core";
+import { Box, Container, Group, Indicator, Menu } from "@mantine/core";
 import { useDisclosure } from "@mantine/hooks";
 import { NextLink } from "@mantine/next";
 import { useRouter } from "next/router";
@@ -12,12 +12,14 @@ import MobileNav from "@components/MobileNav";
 import { main_links, sub_links } from "@data/nav-links";
 import { useNavBarStyles } from "./navbar.styles";
 import { useWindowScrollShow } from "@hooks/useWindowScrollShow";
+import { useCart } from "@hooks/useCart";
 
 function Navbar() {
   const { classes, cx } = useNavBarStyles();
   const router = useRouter();
   const [opened, handlers] = useDisclosure(false);
   const show = useWindowScrollShow();
+  const { totalCartItems, isCartEmpty } = useCart();
 
   return (
     <>
@@ -50,12 +52,31 @@ function Navbar() {
                 icon={<Heart />}
                 href="/wishlist"
               />
-              <IconLink
-                title="Cart"
-                variant="transparent"
-                icon={<Basket />}
-                href="/cart"
-              />
+
+              {isCartEmpty() ? (
+                <IconLink
+                  title="Cart"
+                  variant="transparent"
+                  icon={<Basket />}
+                  href="/cart"
+                />
+              ) : (
+                <Indicator
+                  inline
+                  label={totalCartItems}
+                  size={12}
+                  color="dark"
+                  offset={2}
+                  classNames={{ indicator: classes.cartIndicator }}
+                >
+                  <IconLink
+                    title="Cart"
+                    variant="transparent"
+                    icon={<Basket />}
+                    href="/cart"
+                  />
+                </Indicator>
+              )}
             </Group>
             <Group className={classes.mainMenu}>
               <Group className={classes.mainMenuGroup}>

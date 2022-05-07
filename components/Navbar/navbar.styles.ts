@@ -104,4 +104,8 @@ export const useNavBarStyles = createStyles(theme => ({
     borderBottom: "1px solid",
     color: theme.colors.gray[9],
   },
+  cartIndicator: {
+    fontSize: 10,
+    fontWeight: 600,
+  },
 }));
