@@ -738,6 +738,7 @@
       },
       "ProductDetailDto": {
         "required": [
+          "categorySlug",
           "createdAt",
           "defaultImage",
           "id",
@@ -745,6 +746,7 @@
           "isAvailable",
           "name",
           "price",
+          "productTypeSlug",
           "quantity",
           "slug",
           "title"
@@ -789,6 +791,16 @@
           "categoryName": {
             "type": "string",
             "nullable": true
+          },
+          "description": {
+            "type": "string",
+            "nullable": true
+          },
+          "productTypeSlug": {
+            "type": "string"
+          },
+          "categorySlug": {
+            "type": "string"
           },
           "images": {
             "type": "array",
