@@ -28,4 +28,8 @@ export const useMobileNavStyles = createStyles(theme => ({
       display: "none",
     },
   },
+  cartIndicator: {
+    fontSize: 10,
+    fontWeight: 600,
+  },
 }));
