@@ -17,7 +17,7 @@ const ProductCard: React.FC<{ product: ProductReadType }> = ({ product }) => {
           src={product.defaultImage}
           alt={product.title}
           radius={2}
-          sx={{ maxWidth: 400, maxHeight: 500 }}
+          sx={{ maxWidth: 400, maxHeight: 500, minWidth: 200 }}
         />
       </Box>
       <Box>
