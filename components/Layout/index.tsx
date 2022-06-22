@@ -1,14 +1,21 @@
 import Navbar from "@components/Navbar";
-import { Container } from "@mantine/core";
+import { Box, Stack } from "@mantine/core";
 
 const Layout: React.FC = ({ children }) => {
   return (
-    <>
+    <Stack sx={{ minHeight: "100vh" }}>
       <Navbar />
-      <Container size={1980} px={0}>
+      <Box
+        component="main"
+        sx={{
+          flex: "1 0 auto",
+          minHeight: "100vh",
+          marginBottom: "4.25rem",
+        }}
+      >
         {children}
-      </Container>
-    </>
+      </Box>
+    </Stack>
   );
 };
 
