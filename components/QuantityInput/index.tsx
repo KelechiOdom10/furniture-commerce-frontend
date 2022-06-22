@@ -1,30 +1,24 @@
-import React, { FocusEvent, useRef } from "react";
+import React, { useRef } from "react";
 import { NumberInput, NumberInputHandlers } from "@mantine/core";
 import { Plus, Minus } from "tabler-icons-react";
 import { useQuantityInputStyles } from "./quantity-input.styles";
-import useCartStore from "store/cart";
 import { Icon } from "@components/shared/Icon";
 
 interface QuantityInputProps {
   min?: number;
   max?: number;
-  productId: string;
+  value?: number;
+  handleChange?: (value: number) => void;
 }
 
 const QuantityInput: React.FC<QuantityInputProps> = ({
-  min = 1,
+  min = 0,
   max = 10,
-  productId,
+  value = 1,
+  handleChange = () => {},
 }) => {
   const { classes } = useQuantityInputStyles();
   const handlers = useRef<NumberInputHandlers>();
-  const { getCartItem, removeItem, updateItem } = useCartStore();
-  const value = getCartItem(productId)?.quantity || 1;
-
-  const handleChange = (value: number) => {
-    if (!value) return;
-    value === 0 ? removeItem(productId) : updateItem(productId, value);
-  };
 
   return (
     <div className={classes.wrapper}>
@@ -32,6 +26,7 @@ const QuantityInput: React.FC<QuantityInputProps> = ({
         icon={<Minus size={16} />}
         size={28}
         variant="transparent"
+        name="Minus Icon"
         onClick={() => handlers.current?.decrement()}
         disabled={value === min}
         className={classes.control}
@@ -44,6 +39,7 @@ const QuantityInput: React.FC<QuantityInputProps> = ({
         max={max}
         handlersRef={handlers}
         value={value}
+        readOnly
         onChange={handleChange}
         classNames={{ input: classes.input }}
       />
@@ -52,6 +48,7 @@ const QuantityInput: React.FC<QuantityInputProps> = ({
         icon={<Plus size={16} />}
         size={28}
         variant="transparent"
+        title="Plus Icon"
         onClick={() => handlers.current?.increment()}
         disabled={value === max}
         className={classes.control}
