@@ -1,0 +1,14 @@
+.splide__pagination.main-pagination {
+  left: 0;
+  padding: 0 1em;
+  position: absolute;
+  right: 0;
+  z-index: 1;
+  bottom: -1.5em;
+}
+
+.splide__pagination .splide__pagination__page.is-active {
+  background: #7e7e7e;
+  transform: scale(1.2);
+  z-index: 1;
+}

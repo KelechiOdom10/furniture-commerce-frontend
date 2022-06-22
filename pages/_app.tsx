@@ -7,6 +7,7 @@ import { MantineProvider } from "@mantine/core";
 import { NotificationsProvider } from "@mantine/notifications";
 import Layout from "@components/Layout";
 import { QUERY_OPTIONS_DEFAULT } from "@constants/index";
+import "../styles/app.css";
 
 export async function getStaticProps() {}
 
@@ -39,6 +40,9 @@ function MyApp({ Component, pageProps }: AppProps) {
             withNormalizeCSS
             theme={{
               fontFamily: "Work Sans",
+              headings: {
+                fontFamily: "Work Sans",
+              },
               colorScheme: "light",
             }}
           >
