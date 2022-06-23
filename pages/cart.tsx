@@ -1,7 +1,13 @@
 import { NextPage } from "next";
+import Page from "@components/Layout/Page";
+import Cart from "@components/Cart";
 
-const Cart: NextPage = () => {
-  return <div>Cart</div>;
+const CartPage: NextPage = () => {
+  return (
+    <Page>
+      <Cart />
+    </Page>
+  );
 };
 
-export default Cart;
+export default CartPage;

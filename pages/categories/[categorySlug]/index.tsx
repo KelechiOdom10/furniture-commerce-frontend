@@ -2,6 +2,12 @@ import { GetStaticPaths, GetStaticProps, NextPage } from "next";
 import { dehydrate, QueryClient } from "react-query";
 import { useCategory } from "@hooks/api/useCategory";
 import categoryService from "services/categoryService";
+import Breadcrumbs from "@components/Breadcrumbs";
+import CategoryBlock from "@components/CategoryBlock";
+import ProductList from "@components/ProductList";
+import Page from "@components/Layout/Page";
+import ErrorScreen from "@components/ErrorScreen";
+import LoadingScreen from "@components/LoadingScreen";
 
 export const getStaticPaths: GetStaticPaths = async () => {
   const categories = await categoryService.getCategories();
@@ -30,12 +36,47 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
 };
 
 const Category: NextPage<{ categorySlug: string }> = ({ categorySlug }) => {
-  const { data: category } = useCategory(categorySlug);
+  const {
+    data: category,
+    error,
+    isLoading,
+    refetch,
+  } = useCategory(categorySlug);
+
+  if (error) {
+    return (
+      <ErrorScreen
+        error={error}
+        message="Error loading category and products"
+        resetErrorBoundary={() => refetch()}
+      />
+    );
+  }
+
+  if (isLoading) {
+    return <LoadingScreen />;
+  }
   return (
-    <>
-      <div>Product {categorySlug}</div>
-      <pre>{JSON.stringify(category, null, 2)}</pre>
-    </>
+    <Page>
+      {category && (
+        <>
+          <Breadcrumbs
+            breadcrumbs={[
+              { title: "Home", href: "/" },
+              {
+                title: category.name,
+              },
+            ]}
+          />
+          <CategoryBlock
+            categories={category.productTypes!}
+            parentSlug={category.slug}
+            title={category.name}
+          />
+          <ProductList products={category.products ?? []} />
+        </>
+      )}
+    </Page>
   );
 };
 

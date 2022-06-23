@@ -35,8 +35,6 @@ export const useQuantityInputStyles = createStyles(theme => ({
 
   input: {
     textAlign: "center",
-    paddingRight: `${theme.spacing.sm}px !important`,
-    paddingLeft: `${theme.spacing.sm}px !important`,
     height: 28,
     flex: 1,
   },

@@ -329,6 +329,9 @@ export interface components {
       isAvailable: boolean;
       productTypeName?: string | null;
       categoryName?: string | null;
+      description?: string | null;
+      productTypeSlug: string;
+      categorySlug: string;
       images: string[];
     };
     ProductReadDto: {

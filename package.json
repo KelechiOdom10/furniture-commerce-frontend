@@ -14,6 +14,7 @@
     "@mantine/hooks": "^4.2.2",
     "@mantine/next": "^4.2.2",
     "@mantine/notifications": "^4.2.2",
+    "@splidejs/react-splide": "^0.7.5",
     "axios": "^0.26.1",
     "next": "12.1.4",
     "react": "18.0.0",

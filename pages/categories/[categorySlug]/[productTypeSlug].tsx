@@ -2,6 +2,12 @@ import { GetStaticPaths, GetStaticProps, NextPage } from "next";
 import { dehydrate, QueryClient } from "react-query";
 import { useProductType } from "@hooks/api/useProductType";
 import productTypeService from "services/productTypeService";
+import Breadcrumbs from "@components/Breadcrumbs";
+import CategoryBlock from "@components/CategoryBlock";
+import ProductList from "@components/ProductList";
+import Page from "@components/Layout/Page";
+import ErrorScreen from "@components/ErrorScreen";
+import LoadingScreen from "@components/LoadingScreen";
 
 type Props = {
   categorySlug: string;
@@ -41,12 +47,48 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
 };
 
 const ProductType: NextPage<Props> = ({ productTypeSlug }) => {
-  const { data: productType } = useProductType(productTypeSlug);
+  const {
+    data: productType,
+    error,
+    isLoading,
+    refetch,
+  } = useProductType(productTypeSlug);
+
+  if (error) {
+    return (
+      <ErrorScreen
+        error={error}
+        message="Error loading subcategories and products"
+        resetErrorBoundary={() => refetch()}
+      />
+    );
+  }
+
+  if (isLoading) {
+    return <LoadingScreen />;
+  }
+
   return (
-    <>
-      <h1>productTypeSlug: {productTypeSlug}</h1>
-      <pre>{JSON.stringify(productType, null, 2)}</pre>
-    </>
+    <Page>
+      {productType && (
+        <>
+          <Breadcrumbs
+            breadcrumbs={[
+              { title: "Home", href: "/" },
+              {
+                title: productType.categoryName,
+                href: `/categories/${productType.categorySlug}`,
+              },
+              {
+                title: productType.name,
+              },
+            ]}
+          />
+          <CategoryBlock title={productType.name} />
+          <ProductList products={productType.products ?? []} />
+        </>
+      )}
+    </Page>
   );
 };
 

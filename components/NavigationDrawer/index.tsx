@@ -119,6 +119,9 @@ const NavDrawer: React.FC<DrawerProps> = ({ isOpen, onClose }) => {
       opened={isOpen}
       onClose={onClose}
       title={<Logo />}
+      transition="slide-right"
+      transitionDuration={400}
+      transitionTimingFunction="ease-in"
       classNames={{
         header: classes.header,
         closeButton: classes.closeButton,
