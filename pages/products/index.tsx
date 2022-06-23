@@ -5,6 +5,7 @@ import { useProducts } from "@hooks/api/useProducts";
 import ProductList from "@components/ProductList";
 import ErrorScreen from "@components/ErrorScreen";
 import LoadingScreen from "@components/LoadingScreen";
+import Page from "@components/Layout/Page";
 
 export const getStaticProps: GetStaticProps = async () => {
   const queryClient = new QueryClient();
@@ -35,7 +36,11 @@ const Products: NextPage = () => {
     return <LoadingScreen />;
   }
 
-  return <ProductList products={products ?? []} />;
+  return (
+    <Page>
+      <ProductList products={products ?? []} />
+    </Page>
+  );
 };
 
 export default Products;
