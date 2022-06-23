@@ -123,25 +123,11 @@ const Home: NextPage = () => {
         {" "}
         Follow Mantine on Twitter
       </ButtonLink>
-
       <Button
         variant="default"
         mt={6}
         leftIcon={<BrandApple size={20} fill="white" />}
-        onClick={() =>
-          addItem(
-            { id: "brr", name: "Apple", price: 4, quantity: 1, imageUrl: "" },
-            1
-          )
-        }
-      >
-        Add to Cart
-      </Button>
-      <Button
-        variant="default"
-        mt={6}
-        leftIcon={<BrandApple size={20} fill="white" />}
-        onClick={() => removeItem("brr")}
+        // onClick={() => removeItem("brr")}
       >
         Remove from Cart
       </Button>
@@ -156,7 +142,7 @@ const Home: NextPage = () => {
       </Group>
 
       <>
-        <QuantityInput productId="brr" />
+        <QuantityInput />
       </>
 
       <ProductList products={featuredProducts!} />
