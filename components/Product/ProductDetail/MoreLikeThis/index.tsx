@@ -1,5 +1,5 @@
-import ProductCard from "@components/ProductCard";
-import LoadingScreen from "@components/LoadingScreen";
+import ProductCard from "@components/Product/ProductCard";
+import LoadingScreen from "@components/Helpers/LoadingScreen";
 import { useCategory } from "@hooks/api/useCategory";
 import React from "react";
 import { Box, Group, Title } from "@mantine/core";

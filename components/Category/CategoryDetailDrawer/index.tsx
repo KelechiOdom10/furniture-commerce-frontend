@@ -10,7 +10,7 @@ import {
 } from "@mantine/core";
 import { ChevronLeft } from "tabler-icons-react";
 import { CategoryDetailType } from "types";
-import { useNavDrawerStyles } from "../NavigationDrawer/navigation-drawer.styles";
+import { useNavDrawerStyles } from "@components/Navigation/NavigationDrawer/navigation-drawer.styles";
 import { useCategoryDetailDrawerStyles } from "./category-detail-drawer.styles";
 
 type Props = {

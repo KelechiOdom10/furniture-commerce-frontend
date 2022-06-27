@@ -1,4 +1,4 @@
-import Navbar from "@components/Navbar";
+import Navbar from "@components/Navigation/Navbar";
 import { Box, Stack } from "@mantine/core";
 
 const Layout: React.FC = ({ children }) => {

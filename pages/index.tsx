@@ -13,11 +13,11 @@ import { useNotifications } from "@mantine/notifications";
 import Button from "@components/shared/Button";
 import ButtonLink from "@components/shared/ButtonLink";
 import { BrandApple } from "tabler-icons-react";
-import ProductList from "@components/ProductList";
+import ProductList from "@components/Product/ProductList";
 import productService from "services/productService";
 import { dehydrate, QueryClient } from "react-query";
 import { useFeaturedProducts } from "@hooks/api/useFeaturedProducts";
-import QuantityInput from "@components/QuantityInput";
+import QuantityInput from "@components/Helpers/QuantityInput";
 import { useCart } from "@hooks/useCart";
 
 export const getStaticProps: GetStaticProps = async () => {

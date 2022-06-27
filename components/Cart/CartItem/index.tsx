@@ -1,7 +1,7 @@
-import QuantityInput from "@components/QuantityInput";
+import QuantityInput from "@components/Helpers/QuantityInput";
 import { Icon } from "@components/shared/Icon";
 import { useCart } from "@hooks/useCart";
-import { Box, Divider, Group, Image, Stack, Text, Title } from "@mantine/core";
+import { Box, Divider, Group, Image, Stack, Text } from "@mantine/core";
 import { CartItem } from "@store/cart";
 import { Trash } from "tabler-icons-react";
 import { useCartItemStyles } from "./cart-item.styles";

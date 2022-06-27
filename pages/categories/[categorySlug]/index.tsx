@@ -2,12 +2,12 @@ import { GetStaticPaths, GetStaticProps, NextPage } from "next";
 import { dehydrate, QueryClient } from "react-query";
 import { useCategory } from "@hooks/api/useCategory";
 import categoryService from "services/categoryService";
-import Breadcrumbs from "@components/Breadcrumbs";
-import CategoryBlock from "@components/CategoryBlock";
-import ProductList from "@components/ProductList";
+import Breadcrumbs from "@components/Helpers/Breadcrumbs";
+import CategoryBlock from "@components/Category/CategoryBlock";
+import ProductList from "@components/Product/ProductList";
 import Page from "@components/Layout/Page";
-import ErrorScreen from "@components/ErrorScreen";
-import LoadingScreen from "@components/LoadingScreen";
+import ErrorScreen from "@components/Helpers/ErrorScreen";
+import LoadingScreen from "@components/Helpers/LoadingScreen";
 
 export const getStaticPaths: GetStaticPaths = async () => {
   const categories = await categoryService.getCategories();

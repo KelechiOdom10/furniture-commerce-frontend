@@ -11,8 +11,8 @@ import {
 } from "@mantine/core";
 import { useDisclosure } from "@mantine/hooks";
 import { Logo } from "@components/shared/Logo";
-import SearchInput from "@components/SearchInput";
-import CategoryDetailDrawer from "@components/CategoryDetailDrawer";
+import SearchInput from "@components/Helpers/SearchInput";
+import CategoryDetailDrawer from "@components/Category/CategoryDetailDrawer";
 import { sub_links } from "@data/nav-links";
 import { useNavDrawerStyles } from "./navigation-drawer.styles";
 import { ChevronRight, Help, UserCircle } from "tabler-icons-react";

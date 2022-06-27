@@ -2,11 +2,11 @@ import { GetStaticPaths, GetStaticProps, NextPage } from "next";
 import { dehydrate, QueryClient } from "react-query";
 import productService from "services/productService";
 import { useProduct } from "@hooks/api/useProduct";
-import Breadcrumbs from "@components/Breadcrumbs";
-import ProductDetail from "@components/ProductDetail";
+import Breadcrumbs from "@components/Helpers/Breadcrumbs";
+import ProductDetail from "@components/Product/ProductDetail";
 import Page from "@components/Layout/Page";
-import ErrorScreen from "@components/ErrorScreen";
-import LoadingScreen from "@components/LoadingScreen";
+import ErrorScreen from "@components/Helpers/ErrorScreen";
+import LoadingScreen from "@components/Helpers/LoadingScreen";
 
 export const getStaticPaths: GetStaticPaths = async () => {
   const products = await productService.getProducts();
