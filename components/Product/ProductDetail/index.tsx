@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import QuantityInput from "@components/QuantityInput";
+import QuantityInput from "@components/Helpers/QuantityInput";
 import Button from "@components/shared/Button";
 import { Accordion, Box, Group, Stack, Text, Title } from "@mantine/core";
 import { BuildingStore, Truck } from "tabler-icons-react";

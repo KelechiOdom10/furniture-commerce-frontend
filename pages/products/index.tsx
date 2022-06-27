@@ -2,9 +2,9 @@ import { GetStaticProps, NextPage } from "next";
 import { dehydrate, QueryClient } from "react-query";
 import productService from "services/productService";
 import { useProducts } from "@hooks/api/useProducts";
-import ProductList from "@components/ProductList";
-import ErrorScreen from "@components/ErrorScreen";
-import LoadingScreen from "@components/LoadingScreen";
+import ProductList from "@components/Product/ProductList";
+import ErrorScreen from "@components/Helpers/ErrorScreen";
+import LoadingScreen from "@components/Helpers/LoadingScreen";
 import Page from "@components/Layout/Page";
 
 export const getStaticProps: GetStaticProps = async () => {

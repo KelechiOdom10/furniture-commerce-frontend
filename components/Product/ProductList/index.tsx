@@ -1,6 +1,6 @@
-import ProductCard from "@components/ProductCard";
 import { Box, Grid } from "@mantine/core";
 import { ProductReadType } from "types";
+import ProductCard from "@components/Product/ProductCard";
 
 const ProductList: React.FC<{ products: ProductReadType[] }> = ({
   products,
@@ -17,5 +17,4 @@ const ProductList: React.FC<{ products: ProductReadType[] }> = ({
     </Box>
   );
 };
-
 export default ProductList;

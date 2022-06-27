@@ -5,7 +5,7 @@ import { useRouter } from "next/router";
 import { IMobileNavItem } from "types";
 import { useMobileNavStyles } from "./mobile-nav.styles";
 import { useDisclosure } from "@mantine/hooks";
-import NavDrawer from "@components/NavigationDrawer";
+import NavDrawer from "@components/Navigation/NavigationDrawer";
 import { IconLink } from "@components/shared/Icon";
 import { useCart } from "@hooks/useCart";
 

@@ -1,8 +1,8 @@
 import { QueryErrorResetBoundary } from "react-query";
 import { ErrorBoundary } from "react-error-boundary";
-import ErrorScreen from "@components/ErrorScreen";
+import ErrorScreen from "@components/Helpers/ErrorScreen";
 import { Suspense } from "react";
-import LoadingScreen from "@components/LoadingScreen";
+import LoadingScreen from "@components/Helpers/LoadingScreen";
 
 type Props = {
   message?: string;
