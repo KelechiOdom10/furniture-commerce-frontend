@@ -23,7 +23,7 @@ const footer_links: IMobileNavItem[] = [
   {
     title: "Login / Register",
     icon: <UserCircle strokeWidth={1.2} />,
-    href: "/login",
+    href: "/auth/login",
   },
   { title: "Help Centre", icon: <Help strokeWidth={1.3} />, href: "/contact" },
 ];

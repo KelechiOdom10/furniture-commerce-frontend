@@ -1,14 +1,14 @@
-import CustomInput from "@components/shared/Input";
+import { TextInput } from "@components/shared/Input";
 import { Search } from "tabler-icons-react";
 import { useSearchInputStyles } from "./search-input.styles";
 
-type SearchInputProps = React.ComponentProps<typeof CustomInput>;
+type SearchInputProps = React.ComponentProps<typeof TextInput>;
 
 const SearchInput: React.FC<SearchInputProps> = props => {
   const { classes } = useSearchInputStyles();
 
   return (
-    <CustomInput
+    <TextInput
       className={classes.inputContainer}
       classNames={{
         input: classes.input,

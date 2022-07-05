@@ -21,3 +21,7 @@ export type CategoryDetailType = components["schemas"]["CategoryDetailDto"];
 export type ProductTypeDetailType =
   components["schemas"]["ProductTypeDetailDto"];
 export type ProductDetailType = components["schemas"]["ProductDetailDto"];
+
+export type AuthResponse = components["schemas"]["AuthResponseDto"];
+export type UserRegisterDto = components["schemas"]["UserRegisterDto"];
+export type UserLoginDto = components["schemas"]["UserLoginDto"];

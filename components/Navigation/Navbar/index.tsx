@@ -44,7 +44,8 @@ const Navbar: React.FC = () => {
                   <LinkLogo />
                 </Box>
                 <Group className={classes.iconGroup}>
-                  <Icon
+                  <IconLink
+                    href="/auth/login"
                     variant="transparent"
                     title="User"
                     icon={<User />}

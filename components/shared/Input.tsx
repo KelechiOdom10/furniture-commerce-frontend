@@ -1,10 +1,48 @@
 import React from "react";
-import { TextInput, TextInputProps } from "@mantine/core";
+import {
+  PasswordInput,
+  PasswordInputProps,
+  TextInput,
+  TextInputProps,
+} from "@mantine/core";
 
-const CustomInput = React.forwardRef<HTMLInputElement, TextInputProps>(
+const CustomTextInput = React.forwardRef<HTMLInputElement, TextInputProps>(
   (props, ref) => {
-    return <TextInput {...props} ref={ref} />;
+    return (
+      <TextInput
+        ref={ref}
+        size="md"
+        styles={theme => ({
+          invalid: {
+            "::placeholder": {
+              color: theme.colors.gray[5],
+            },
+          },
+        })}
+        {...props}
+      />
+    );
   }
 );
 
-export default CustomInput;
+const CustomPasswordInput = React.forwardRef<
+  HTMLInputElement,
+  PasswordInputProps
+>((props, ref) => {
+  return (
+    <PasswordInput
+      ref={ref}
+      size="md"
+      styles={theme => ({
+        invalid: {
+          "::placeholder": {
+            color: theme.colors.gray[5],
+          },
+        },
+      })}
+      {...props}
+    />
+  );
+});
+
+export { CustomTextInput as TextInput, CustomPasswordInput as PasswordInput };
