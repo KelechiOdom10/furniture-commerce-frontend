@@ -14,7 +14,7 @@ const mobileNavLinks: IMobileNavItem[] = [
   { title: "Search", href: "#", icon: <ListSearch /> },
   { title: "Cart", href: "/cart", icon: <Basket /> },
   { title: "Wishlist", href: "/wishlist", icon: <Heart /> },
-  { title: "Profile", href: "/profile", icon: <User /> },
+  { title: "Profile", href: "/auth/login", icon: <User /> },
 ];
 
 type MobileNavItemProps = {
