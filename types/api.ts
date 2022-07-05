@@ -4,6 +4,62 @@
  */
 
 export interface paths {
+  "/api/auth/currentUser": {
+    get: {
+      responses: {
+        /** Success */
+        200: {
+          content: {
+            "text/plain": string;
+            "application/json": string;
+            "text/json": string;
+          };
+        };
+      };
+    };
+  };
+  "/api/auth/register": {
+    post: {
+      responses: {
+        /** Success */
+        200: {
+          content: {
+            "text/plain": components["schemas"]["AuthResponseDto"];
+            "application/json": components["schemas"]["AuthResponseDto"];
+            "text/json": components["schemas"]["AuthResponseDto"];
+          };
+        };
+      };
+      requestBody: {
+        content: {
+          "application/json": components["schemas"]["UserRegisterDto"];
+          "text/json": components["schemas"]["UserRegisterDto"];
+          "application/*+json": components["schemas"]["UserRegisterDto"];
+        };
+      };
+    };
+  };
+  "/api/auth/login": {
+    post: {
+      responses: {
+        /** Success */
+        200: {
+          content: {
+            "text/plain": components["schemas"]["AuthResponseDto"];
+            "application/json": components["schemas"]["AuthResponseDto"];
+            "text/json": components["schemas"]["AuthResponseDto"];
+          };
+        };
+      };
+      requestBody: {
+        content: {
+          "application/json": components["schemas"]["UserLoginDto"];
+          "text/json": components["schemas"]["UserLoginDto"];
+          "application/*+json": components["schemas"]["UserLoginDto"];
+        };
+      };
+    };
+  };
   "/api/categories": {
     get: {
       responses: {
@@ -257,6 +313,11 @@ export interface paths {
 
 export interface components {
   schemas: {
+    AuthResponseDto: {
+      email?: string | null;
+      message?: string | null;
+      token?: string | null;
+    };
     CategoryCreateDto: {
       name: string;
       slug: string;
@@ -302,7 +363,10 @@ export interface components {
       title: string;
       description: string;
       images?: string[] | null;
-      /** Format: double */
+      /**
+       * Format: double
+       * @default 0
+       */
       price: number;
       /** Format: int32 */
       quantity: number;
@@ -412,6 +476,23 @@ export interface components {
       productTypeId: number;
       /** Format: int32 */
       categoryId: number;
+    };
+    UserLoginDto: {
+      /** Format: email */
+      email: string;
+      /** Format: password */
+      password: string;
+    };
+    UserRegisterDto: {
+      firstName: string;
+      lastName: string;
+      /** Format: tel */
+      phoneNumber?: string | null;
+      /** Format: email */
+      email: string;
+      /** Format: password */
+      password: string;
+      role?: string | null;
     };
   };
 }
