@@ -1,7 +1,7 @@
 import { GetStaticProps, NextPage } from "next";
 import { dehydrate, QueryClient } from "react-query";
 import productService from "services/productService";
-import { useProducts } from "@hooks/api/useProducts";
+import { useProducts } from "@hooks/api/product/useProducts";
 import ProductList from "@components/Product/ProductList";
 import ErrorScreen from "@components/Helpers/ErrorScreen";
 import LoadingScreen from "@components/Helpers/LoadingScreen";

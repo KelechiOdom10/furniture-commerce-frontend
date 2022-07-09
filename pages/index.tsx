@@ -16,7 +16,7 @@ import { BrandApple } from "tabler-icons-react";
 import ProductList from "@components/Product/ProductList";
 import productService from "services/productService";
 import { dehydrate, QueryClient } from "react-query";
-import { useFeaturedProducts } from "@hooks/api/useFeaturedProducts";
+import { useFeaturedProducts } from "@hooks/api/product/useFeaturedProducts";
 import QuantityInput from "@components/Helpers/QuantityInput";
 import { useCart } from "@hooks/useCart";
 
