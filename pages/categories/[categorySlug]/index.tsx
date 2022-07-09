@@ -1,6 +1,6 @@
 import { GetStaticPaths, GetStaticProps, NextPage } from "next";
 import { dehydrate, QueryClient } from "react-query";
-import { useCategory } from "@hooks/api/useCategory";
+import { useCategory } from "@hooks/api/category/useCategory";
 import categoryService from "services/categoryService";
 import Breadcrumbs from "@components/Helpers/Breadcrumbs";
 import CategoryBlock from "@components/Category/CategoryBlock";
