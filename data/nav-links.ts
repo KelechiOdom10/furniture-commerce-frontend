@@ -23,6 +23,7 @@ export const sub_links: CategoryDetailType[] = [
         imageUrl:
           "https://www.lapalma.it/uploads/product/thumbnail/135/collection_webp_plus_classic_trasparente.png.webp",
         id: 3,
+        categorySlug: "sofas",
         createdAt: "2021-07-20T23:17:53.724176+00:00",
       },
       {
@@ -32,6 +33,7 @@ export const sub_links: CategoryDetailType[] = [
         imageUrl:
           "https://images.dfs.co.uk/i/dfs/mya_3a_simplywoollook_steelgrey_view1?$dfs_v2_pdp_m$&fmt=auto",
         id: 2,
+        categorySlug: "sofas",
         createdAt: "2021-12-18T00:17:53.724175+00:00",
       },
       {
@@ -41,6 +43,7 @@ export const sub_links: CategoryDetailType[] = [
         imageUrl:
           "https://i.pinimg.com/originals/46/8c/0a/468c0abf669104e862355303efc1b6e7.png",
         id: 1,
+        categorySlug: "sofas",
         createdAt: "2021-09-08T23:17:53.724173+00:00",
       },
     ],
@@ -61,6 +64,7 @@ export const sub_links: CategoryDetailType[] = [
         imageUrl:
           "http://cdn.ecommercedns.uk/files/4/228904/0/13183260/9120001338-0.png",
         id: 6,
+        categorySlug: "kitchen",
         createdAt: "2021-12-18T00:17:53.724181+00:00",
       },
       {
@@ -70,6 +74,7 @@ export const sub_links: CategoryDetailType[] = [
         imageUrl:
           "https://cdn.shopify.com/s/files/1/0526/4261/1399/products/1.png?v=1628686245",
         id: 5,
+        categorySlug: "kitchen",
         createdAt: "2021-09-08T23:17:53.72418+00:00",
       },
       {
@@ -79,6 +84,7 @@ export const sub_links: CategoryDetailType[] = [
         imageUrl:
           "https://www.lecreuset.co.uk/dw/image/v2/BDSR_PRD/on/demandware.static/-/Sites-master-catalog-LC/default/dwda0e17d9/images/hires/Full_HD_PNG/LC_20190624_ZS_PS_FS_51804000010002_001.png?sw=765&sh=575&sm=fit",
         id: 4,
+        categorySlug: "kitchen",
         createdAt: "2021-10-28T23:17:53.724178+00:00",
       },
     ],
@@ -96,6 +102,7 @@ export const sub_links: CategoryDetailType[] = [
         name: "King Size Beds",
         categoryName: "Beds",
         slug: "king-size-beds",
+        categorySlug: "beds",
         imageUrl:
           "https://www.bedsofparadise.co.uk/a-bespoke-client-folders/paradise/bespoke-images/product/Bern%20Frame%20Grey.png",
         id: 9,
@@ -108,12 +115,14 @@ export const sub_links: CategoryDetailType[] = [
         imageUrl:
           "https://www.afs-admin.co.uk/images-product/rialto-light-grey-linen-bed-90cm-78246",
         id: 8,
+        categorySlug: "beds",
         createdAt: "2021-10-28T23:17:53.724184+00:00",
       },
       {
         name: "Double Beds",
         categoryName: "Beds",
         slug: "double-beds",
+        categorySlug: "beds",
         imageUrl:
           "https://www.bedsofparadise.co.uk/a-bespoke-client-folders/paradise/bespoke-images/product/carnival-double-bed-frame-3727",
         id: 7,
@@ -133,6 +142,7 @@ export const sub_links: CategoryDetailType[] = [
         name: "Ceiling Lights",
         categoryName: "Lighting",
         slug: "ceiling-lights",
+        categorySlug: "lighting",
         imageUrl:
           "https://cdn.shopify.com/s/files/1/0342/2425/products/UMAGE_packshot_2329_AsteriaUp_pearlwhite__3_4df81b09-4b79-4bdb-892b-7c5121e4c6fd_600x.png?v=1636450893",
         id: 12,
@@ -142,6 +152,7 @@ export const sub_links: CategoryDetailType[] = [
         name: "Wall Lights",
         categoryName: "Lighting",
         slug: "wall-lights",
+        categorySlug: "lighting",
         imageUrl:
           "https://res.cloudinary.com/clippings/image/upload/t_small_square/dpr_auto,f_auto,w_auto/v2/products/brooklyn-wall-light-with-tube-glass-brass-holder-brass-ring-tube-glass-industville-clippings-11324159.png",
         id: 11,
@@ -150,6 +161,7 @@ export const sub_links: CategoryDetailType[] = [
       {
         name: "Floor Lamps",
         categoryName: "Lighting",
+        categorySlug: "lighting",
         slug: "floor-lamps",
         imageUrl:
           "https://cdn.shopify.com/s/files/1/0251/5529/products/206100313_01copy_360x.png?v=1623766088",
@@ -171,6 +183,7 @@ export const sub_links: CategoryDetailType[] = [
         name: "Office Desks",
         categoryName: "Office",
         slug: "office-desks",
+        categorySlug: "office",
         imageUrl:
           "https://cdn11.bigcommerce.com/s-a9q2mnae4u/images/stencil/1280x1280/products/987/1466/91e9720027c98bffd301fe0e816dc3e16f774a68__69715.1646422397.png?c=1&imbypass=on",
         id: 14,
@@ -179,6 +192,7 @@ export const sub_links: CategoryDetailType[] = [
       {
         name: "Office Chairs",
         categoryName: "Office",
+        categorySlug: "office",
         slug: "office-chairs",
         imageUrl:
           "https://northdecoshop.com/5910-large_default/office-chair-low-leather.jpg",
