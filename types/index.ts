@@ -25,3 +25,4 @@ export type ProductDetailType = components["schemas"]["ProductDetailDto"];
 export type AuthResponse = components["schemas"]["AuthResponseDto"];
 export type UserRegisterDto = components["schemas"]["UserRegisterDto"];
 export type UserLoginDto = components["schemas"]["UserLoginDto"];
+export type UserReadType = components["schemas"]["UserReadDto"];
