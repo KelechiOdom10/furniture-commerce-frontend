@@ -1,4 +1,4 @@
-import { Box, Container, Group, Indicator, Menu } from "@mantine/core";
+import { Box, Container, Divider, Group, Indicator, Menu } from "@mantine/core";
 import { useDisclosure } from "@mantine/hooks";
 import { NextLink } from "@mantine/next";
 import { useRouter } from "next/router";
@@ -14,14 +14,24 @@ import { useNavBarStyles } from "./navbar.styles";
 import { useWindowScrollShow } from "@hooks/useWindowScrollShow";
 import { useCart } from "@hooks/useCart";
 import { useCartHydration } from "@store/cart";
+import { useMe } from "@hooks/api/user/useMe";
+import UserAvatar from "@components/shared/Avatar";
+import { user_profile_links } from "./data";
+import { useAuth } from "@hooks/useAuth";
 
 const Navbar: React.FC = () => {
-  const hasCartHydrated = useCartHydration();
-  const { classes, cx } = useNavBarStyles();
-  const router = useRouter();
   const [opened, handlers] = useDisclosure(false);
+  const hasCartHydrated = useCartHydration();
   const show = useWindowScrollShow();
+  const router = useRouter();
+  const { data: user } = useMe();
+  const { logout } = useAuth();
+  const { classes, cx } = useNavBarStyles();
   const { totalCartItems, isCartEmpty } = useCart();
+
+  const handleLogout = async () => {
+    await logout();
+  };
 
   return (
     <>
@@ -44,13 +54,55 @@ const Navbar: React.FC = () => {
                   <LinkLogo />
                 </Box>
                 <Group className={classes.iconGroup}>
-                  <IconLink
-                    href="/auth/login"
-                    variant="transparent"
-                    title="User"
-                    icon={<User />}
-                    className={classes.profileIcon}
-                  />
+                  {user ? (
+                    <Menu
+                      trigger="hover"
+                      delay={100}
+                      position="bottom"
+                      control={
+                        <UserAvatar
+                          alt={`${user.firstName} ${user.lastName}`}
+                        />
+                      }
+                    >
+                      <Menu.Label>Profile</Menu.Label>
+                      <Divider />
+                      {user_profile_links.profile.map(
+                        ({ title, href, icon }) => {
+                          if (title === "Logout") {
+                            return (
+                              <Menu.Item
+                                key={title}
+                                color="red"
+                                icon={icon}
+                                onClick={handleLogout}
+                              >
+                                {title}
+                              </Menu.Item>
+                            );
+                          }
+                          return (
+                            <Menu.Item
+                              key={title}
+                              icon={icon}
+                              component={NextLink}
+                              href={href}
+                            >
+                              {title}
+                            </Menu.Item>
+                          );
+                        }
+                      )}
+                    </Menu>
+                  ) : (
+                    <IconLink
+                      href="/auth/login"
+                      variant="transparent"
+                      title="User"
+                      icon={<User />}
+                      className={classes.profileIcon}
+                    />
+                  )}
                   <IconLink
                     title="Wishlist"
                     variant="transparent"

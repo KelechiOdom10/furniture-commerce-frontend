@@ -18,15 +18,8 @@ import { useNavDrawerStyles } from "./navigation-drawer.styles";
 import { ChevronRight, Help, UserCircle } from "tabler-icons-react";
 import Link from "@components/shared/Link";
 import ButtonLink from "@components/shared/ButtonLink";
-
-const footer_links: IMobileNavItem[] = [
-  {
-    title: "Login / Register",
-    icon: <UserCircle strokeWidth={1.2} />,
-    href: "/auth/login",
-  },
-  { title: "Help Centre", icon: <Help strokeWidth={1.3} />, href: "/contact" },
-];
+import { useMe } from "@hooks/api/user/useMe";
+import UserAvatar from "@components/shared/Avatar";
 
 interface UserButtonProps extends React.ComponentPropsWithoutRef<"button"> {
   image: string | undefined;
@@ -106,9 +99,29 @@ type DrawerProps = {
 
 const NavDrawer: React.FC<DrawerProps> = ({ isOpen, onClose }) => {
   const { classes, cx } = useNavDrawerStyles();
+  const { data: user } = useMe();
+  console.log(user);
   const [opened, handlers] = useDisclosure(false);
   const [selectedCategoryDetail, setSelectedCategoryDetail] =
     useState<CategoryDetailType | null>(null);
+  const footer_links: IMobileNavItem[] = [
+    user
+      ? {
+          title: "Profile",
+          icon: <UserAvatar alt={`${user.firstName} ${user.lastName}`} />,
+          href: "/profile",
+        }
+      : {
+          title: "Login / Register",
+          icon: <UserCircle strokeWidth={1.2} />,
+          href: "/auth/login",
+        },
+    {
+      title: "Help Centre",
+      icon: <Help strokeWidth={1.3} />,
+      href: "/contact",
+    },
+  ];
 
   const handleCategoryClick = (category: CategoryDetailType) => {
     setSelectedCategoryDetail(category);
