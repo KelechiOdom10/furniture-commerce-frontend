@@ -5,8 +5,13 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { TextInput, PasswordInput } from "@components/shared/Input";
 import Button from "@components/shared/Button";
 import { UserRegisterDto } from "types";
+import { useAuth } from "@hooks/useAuth";
+import { useRouter } from "next/router";
 
 const RegisterForm: React.FC = () => {
+  const { register: signup } = useAuth();
+  const regex: RegExp = new RegExp(/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{6,}$/);
+  const router = useRouter();
   const userRegisterSchema = z.object({
     firstName: z.string().min(1, "First name is required"),
     lastName: z.string().min(1, "Last name is required"),
@@ -15,7 +20,13 @@ const RegisterForm: React.FC = () => {
       .min(1, "Email is required")
       .email("Invalid email address"),
     phoneNumber: z.string().optional(),
-    password: z.string().min(1, "Password is required"),
+    password: z
+      .string()
+      .min(1, "Password is required")
+      .regex(
+        regex,
+        "Password must be at least 6 characters long and contain at least one number and one letter"
+      ),
     role: z.enum(["Admin", "User"]).default("User").optional(),
   });
   // type UserRegisterDto = z.infer<typeof userRegisterSchema>;
@@ -27,7 +38,11 @@ const RegisterForm: React.FC = () => {
   } = useForm<UserRegisterDto>({
     resolver: zodResolver(userRegisterSchema),
   });
-  const handleRegister = handleSubmit(data => console.log(data));
+
+  const handleRegister = handleSubmit(async data => {
+    await signup(data);
+    router.push("/products");
+  });
 
   return (
     <Stack align="stretch">

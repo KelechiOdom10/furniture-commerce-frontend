@@ -1,3 +1,4 @@
+import { useRouter } from "next/router";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -5,8 +6,11 @@ import { Stack, Title } from "@mantine/core";
 import { TextInput, PasswordInput } from "@components/shared/Input";
 import Button from "@components/shared/Button";
 import { UserLoginDto } from "types";
+import { useAuth } from "@hooks/useAuth";
 
 const LoginForm: React.FC = () => {
+  const { login } = useAuth();
+  const router = useRouter();
   const userLoginSchema = z.object({
     email: z
       .string()
@@ -22,7 +26,11 @@ const LoginForm: React.FC = () => {
   } = useForm<UserLoginDto>({
     resolver: zodResolver(userLoginSchema),
   });
-  const handleLogin = handleSubmit(data => console.log(data));
+
+  const handleLogin = handleSubmit(async data => {
+    await login(data);
+    router.push("/products");
+  });
 
   return (
     <Stack align="stretch">
