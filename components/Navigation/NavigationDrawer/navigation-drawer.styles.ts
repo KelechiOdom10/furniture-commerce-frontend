@@ -18,7 +18,7 @@ export const useNavDrawerStyles = createStyles(theme => ({
   },
   mainContent: {
     marginBottom: 52,
-    height: "100vh",
+    minHeight: "100vh",
     [theme.fn.largerThan("xs")]: {
       margin: 0,
     },

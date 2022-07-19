@@ -1,5 +1,11 @@
 import { api } from "api";
-import { AuthResponse, UserLoginDto, UserRegisterDto } from "types";
+import { getToken } from "@utils/jwtToken";
+import {
+  AuthResponse,
+  UserLoginDto,
+  UserRegisterDto,
+  UserReadType,
+} from "types";
 
 class AuthService {
   async login(values: UserLoginDto) {
@@ -9,6 +15,13 @@ class AuthService {
 
   async register(values: UserRegisterDto) {
     const response = await api.post<AuthResponse>("/auth/register", values);
+    return response.data;
+  }
+
+  async getCurrentUser() {
+    const response = await api.get<UserReadType>("/auth/currentUser", {
+      headers: { Authorization: `Bearer ${getToken()}` },
+    });
     return response.data;
   }
 }
