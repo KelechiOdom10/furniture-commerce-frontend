@@ -10,9 +10,9 @@ export interface paths {
         /** Success */
         200: {
           content: {
-            "text/plain": string;
-            "application/json": string;
-            "text/json": string;
+            "text/plain": components["schemas"]["UserReadDto"];
+            "application/json": components["schemas"]["UserReadDto"];
+            "text/json": components["schemas"]["UserReadDto"];
           };
         };
       };
@@ -314,9 +314,9 @@ export interface paths {
 export interface components {
   schemas: {
     AuthResponseDto: {
-      email?: string | null;
+      user: components["schemas"]["UserReadDto"];
       message?: string | null;
-      token?: string | null;
+      token: string;
     };
     CategoryCreateDto: {
       name: string;
@@ -482,6 +482,12 @@ export interface components {
       email: string;
       /** Format: password */
       password: string;
+    };
+    UserReadDto: {
+      firstName: string;
+      lastName: string;
+      email: string;
+      role: string;
     };
     UserRegisterDto: {
       firstName: string;

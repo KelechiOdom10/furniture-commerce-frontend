@@ -15,17 +15,17 @@
             "content": {
               "text/plain": {
                 "schema": {
-                  "type": "string"
+                  "$ref": "#/components/schemas/UserReadDto"
                 }
               },
               "application/json": {
                 "schema": {
-                  "type": "string"
+                  "$ref": "#/components/schemas/UserReadDto"
                 }
               },
               "text/json": {
                 "schema": {
-                  "type": "string"
+                  "$ref": "#/components/schemas/UserReadDto"
                 }
               }
             }
@@ -657,19 +657,18 @@
   "components": {
     "schemas": {
       "AuthResponseDto": {
+        "required": ["token", "user"],
         "type": "object",
         "properties": {
-          "email": {
-            "type": "string",
-            "nullable": true
+          "user": {
+            "$ref": "#/components/schemas/UserReadDto"
           },
           "message": {
             "type": "string",
             "nullable": true
           },
           "token": {
-            "type": "string",
-            "nullable": true
+            "type": "string"
           }
         },
         "additionalProperties": false
@@ -1230,6 +1229,25 @@
         },
         "additionalProperties": false
       },
+      "UserReadDto": {
+        "required": ["email", "firstName", "lastName", "role"],
+        "type": "object",
+        "properties": {
+          "firstName": {
+            "type": "string"
+          },
+          "lastName": {
+            "type": "string"
+          },
+          "email": {
+            "type": "string"
+          },
+          "role": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      },
       "UserRegisterDto": {
         "required": ["email", "firstName", "lastName", "password"],
         "type": "object",
@@ -1250,7 +1268,7 @@
             "format": "email"
           },
           "password": {
-            "pattern": "(?=^.{6,10}$)(?=.*\\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&amp;*()_+}{&quot;:;'?/&gt;.&lt;,])(?!.*\\s).*$",
+            "pattern": "^(?=.*[A-Za-z])(?=.*\\d)[A-Za-z\\d]{6,}$",
             "type": "string",
             "format": "password"
           },
