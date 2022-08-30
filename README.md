@@ -47,3 +47,13 @@ Run Next dev server:
 ```bash
 npm run dev
 ```
+
+## TO-DO
+
+- [ ] Add order functionality to Checkout page 
+- [ ] Sort out payment integration with Stripe
+- [ ] Add Social login
+
+## Contributing 
+
+This is an open source project, and contributions of any kind are welcome and appreciated. Open issues, bugs, and feature requests are all listed on the [issues](https://github.com/KelechiOdom10/furniture-commerce-frontend/issues) tab and labeled accordingly. Feel free to open bug tickets and make feature requests.
