@@ -1,34 +1,49 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+[![License](https://img.shields.io/github/license/falberthen/ecommerceddd.svg)](LICENSE)
 
-## Getting Started
+# Furniture Commerce Website
 
-First, run the development server:
+* This is a full ecommerce platform made with Next.js and Mantine Ui for styling. The accompanying backend is built using .NET Core and can be found [here](https://github.com/KelechiOdom10/furniture-commerce-api)
+
+## Key Features
+
+- Get a list of categories and their associated products
+- Get a list of product types and their associated products
+- Get a list of products
+- Filter and sort products
+- Search products
+- Get Individual product details
+- Users can add items to cart
+- Create an Order with delivery details
+- Ability to checkout as a guest or authenticated user
+- Wishlist management
+- Address Managment
+- Payment gateway integration
+- Authentication:
+  - User Signup
+  - User Login
+- Admin functionality to perform CRUD operations with products, categories, product types, users and orders
+
+## Getting Started 
+
+Clone the repository
+
+```bash
+git clone https://github.com/KelechiOdom10/furniture-commerce-frontend.git
+```
+
+Fill your .env variables:
+```
+NEXT_PUBLIC_API_URL=
+```
+
+Install deps:
+
+```bash
+npm install
+```
+
+Run Next dev server:
 
 ```bash
 npm run dev
-# or
-yarn dev
 ```
-
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
-
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
-
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
