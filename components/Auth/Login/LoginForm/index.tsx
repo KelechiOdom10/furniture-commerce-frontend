@@ -1,4 +1,3 @@
-import { useRouter } from "next/router";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -10,7 +9,6 @@ import { useAuth } from "@hooks/useAuth";
 
 const LoginForm: React.FC = () => {
   const { login } = useAuth();
-  const router = useRouter();
   const userLoginSchema = z.object({
     email: z
       .string()
@@ -29,7 +27,6 @@ const LoginForm: React.FC = () => {
 
   const handleLogin = handleSubmit(async data => {
     await login(data);
-    router.push("/products");
   });
 
   return (
