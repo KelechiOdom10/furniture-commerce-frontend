@@ -99,9 +99,9 @@ const Cart: React.FC = () => {
                         £{totalAmount.toLocaleString()}
                       </Text>
                     </Group>
-                    <Button variant="default" fullWidth>
+                    <ButtonLink href="/checkout" variant="default" fullWidth>
                       Checkout
-                    </Button>
+                    </ButtonLink>
                   </Stack>
                 </Stack>
               </Paper>
