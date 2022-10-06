@@ -1,6 +1,7 @@
-import RegisterPage from "@components/Auth/Register/index";
-import Page from "@components/Layout/Page";
 import { NextPage } from "next";
+import Page from "@components/Layout/Page";
+import RegisterPage from "@components/Auth/Register/index";
+import withoutAuth from "@components/HOC/withoutAuth";
 
 const Register: NextPage = () => {
   return (
@@ -10,4 +11,4 @@ const Register: NextPage = () => {
   );
 };
 
-export default Register;
+export default withoutAuth(Register);
