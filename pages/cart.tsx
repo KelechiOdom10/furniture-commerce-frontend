@@ -4,7 +4,7 @@ import Cart from "@components/Cart";
 
 const CartPage: NextPage = () => {
   return (
-    <Page>
+    <Page size={1440}>
       <Cart />
     </Page>
   );
