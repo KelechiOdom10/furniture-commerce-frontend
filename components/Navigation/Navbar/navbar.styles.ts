@@ -63,7 +63,7 @@ export const useNavBarStyles = createStyles(theme => ({
     [theme.fn.largerThan("md")]: {
       width: "60%",
       marginRight: "auto",
-      marginLeft: theme.spacing.xl,
+      marginLeft: 40,
     },
   },
   mainMenuGroup: {
@@ -85,6 +85,8 @@ export const useNavBarStyles = createStyles(theme => ({
   subMenu: {
     width: "100%",
     height: "auto",
+    marginTop: theme.spacing.md,
+    gap: 36,
     order: 2,
     [theme.fn.smallerThan("md")]: {
       display: "none",

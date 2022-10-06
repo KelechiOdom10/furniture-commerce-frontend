@@ -6,12 +6,10 @@ import { TextInput, PasswordInput } from "@components/shared/Input";
 import Button from "@components/shared/Button";
 import { UserRegisterDto } from "types";
 import { useAuth } from "@hooks/useAuth";
-import { useRouter } from "next/router";
 
 const RegisterForm: React.FC = () => {
   const { register: signup } = useAuth();
   const regex: RegExp = new RegExp(/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{6,}$/);
-  const router = useRouter();
   const userRegisterSchema = z.object({
     firstName: z.string().min(1, "First name is required"),
     lastName: z.string().min(1, "Last name is required"),
@@ -41,7 +39,6 @@ const RegisterForm: React.FC = () => {
 
   const handleRegister = handleSubmit(async data => {
     await signup(data);
-    router.push("/products");
   });
 
   return (
