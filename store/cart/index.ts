@@ -1,7 +1,7 @@
+import { useEffect, useState } from "react";
 import create, { StateCreator } from "zustand";
 import { persist, PersistOptions } from "zustand/middleware";
 import { isBrowser } from "@utils/isBrowser";
-import { useEffect, useState } from "react";
 
 export type CartItem = {
   id: number;
