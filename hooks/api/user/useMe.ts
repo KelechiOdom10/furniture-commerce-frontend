@@ -14,5 +14,5 @@ export const useMe = () => {
     }
   );
 
-  return queryInfo;
+  return { user: queryInfo.data, ...queryInfo };
 };

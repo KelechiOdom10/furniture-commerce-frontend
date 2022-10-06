@@ -24,7 +24,7 @@ const Navbar: React.FC = () => {
   const hasCartHydrated = useCartHydration();
   const show = useWindowScrollShow();
   const router = useRouter();
-  const { data: user } = useMe();
+  const { user } = useMe();
   const { logout } = useAuth();
   const { classes, cx } = useNavBarStyles();
   const { totalCartItems, isCartEmpty } = useCart();
@@ -96,7 +96,7 @@ const Navbar: React.FC = () => {
                     </Menu>
                   ) : (
                     <IconLink
-                      href="/auth/login"
+                      href={`/auth/login?redirectTo=${router.asPath}`}
                       variant="transparent"
                       title="User"
                       icon={<User />}
@@ -135,7 +135,7 @@ const Navbar: React.FC = () => {
                     </Indicator>
                   )}
                 </Group>
-                <Group className={classes.mainMenu}>
+                <Group className={classes.mainMenu} align="center">
                   <Group className={classes.mainMenuGroup}>
                     {main_links.map(({ href, title }) => {
                       const isActive = router.pathname === href;
@@ -154,7 +154,7 @@ const Navbar: React.FC = () => {
                     })}
                   </Group>
                   <Box className={classes.input}>
-                    <SearchInput />
+                    <SearchInput size="sm" />
                   </Box>
                 </Group>
                 <Group

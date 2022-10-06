@@ -20,6 +20,7 @@ import Link from "@components/shared/Link";
 import ButtonLink from "@components/shared/ButtonLink";
 import { useMe } from "@hooks/api/user/useMe";
 import UserAvatar from "@components/shared/Avatar";
+import { useRouter } from "next/router";
 
 interface UserButtonProps extends React.ComponentPropsWithoutRef<"button"> {
   image: string | undefined;
@@ -99,8 +100,8 @@ type DrawerProps = {
 
 const NavDrawer: React.FC<DrawerProps> = ({ isOpen, onClose }) => {
   const { classes, cx } = useNavDrawerStyles();
-  const { data: user } = useMe();
-  console.log(user);
+  const router = useRouter();
+  const { user } = useMe();
   const [opened, handlers] = useDisclosure(false);
   const [selectedCategoryDetail, setSelectedCategoryDetail] =
     useState<CategoryDetailType | null>(null);
@@ -109,12 +110,12 @@ const NavDrawer: React.FC<DrawerProps> = ({ isOpen, onClose }) => {
       ? {
           title: "Profile",
           icon: <UserAvatar alt={`${user.firstName} ${user.lastName}`} />,
-          href: "/profile",
+          href: "/user/profile",
         }
       : {
           title: "Login / Register",
           icon: <UserCircle strokeWidth={1.2} />,
-          href: "/auth/login",
+          href: `/auth/login?redirectTo=${router.pathname}`,
         },
     {
       title: "Help Centre",
